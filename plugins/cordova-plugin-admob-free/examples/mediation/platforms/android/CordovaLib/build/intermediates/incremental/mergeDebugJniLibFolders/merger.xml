@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/CordovaLib/src/main/jniLibs"/></dataSet><dataSet config="debug"><source path="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/CordovaLib/src/debug/jniLibs"/></dataSet></merger>

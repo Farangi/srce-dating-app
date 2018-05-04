@@ -1,0 +1,160 @@
+<!-- SignUp/Registration Page -->
+
+<ion-content text-center>
+  <form>
+  <!-- All the SignUp form contents added in Slider  -->
+    <ion-slides>
+      <!-- Slider One  -->
+      <!-- SignUp Form Step One  -->
+      <!-- Select user Gender and option to go in next slider -->
+      <ion-slide>
+        <div class="main-body">
+          <div class="section-one">
+            <div class="field-title">Hey! You're ...</div>
+          </div>
+          <div class="section-two">
+            <ion-grid>
+              <ion-row text-center>
+                <ion-col col-6>
+                  <ion-row (tap)="gender = 'male'">
+                    <ion-col col-12>
+                      <ion-icon name="man" style="zoom:4.0;" [color]="gender == 'male' ? 'color3' : 'light'"></ion-icon>
+                    </ion-col>
+                    <ion-col col-12>
+                      <button ion-button type="button" [color]="gender == 'male' ? 'color3' : 'light'">Male</button>
+                    </ion-col>
+                  </ion-row>
+                </ion-col>
+                <ion-col col-6>
+                  <ion-row (tap)="gender = 'female'">
+                    <ion-col col-12>
+                      <ion-icon name="woman" style="zoom:4.0;" [color]="gender == 'female' ? 'color3' : 'light'"></ion-icon>
+                    </ion-col>
+                    <ion-col col-12>
+                      <button ion-button type="button" [color]="gender == 'female' ? 'color3' : 'light'">Female</button>
+                    </ion-col>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+          <div class="section-three">
+            <ion-list>
+              <div class="button-option animated fadeInUp" padding-left padding-right>
+                <button ion-button type="button" round full color="color3" (click)="step2()">GO</button>
+              </div>
+            </ion-list>
+          </div>
+        </div>
+      </ion-slide>
+      <!-- End Slider One  -->
+
+      <!-- Slider Two  -->
+      <!-- Signup Form Step Two-->
+      <!-- Fill up username, email, date of birth and option to go in next slider -->
+      <ion-slide>
+        <div class="background" text-center>
+
+          <div class="title animated fadeInDown">
+            <p>My Email is ...</p>
+          </div>
+
+          <!-- Main Body -->
+          <div class="main-body animated zoomIn" padding>
+            <div class="form">
+              <ion-list>
+
+                <!-- User Name -->
+                <ion-item>
+                  <ion-label>
+                    <ion-icon name="person" color="color3"></ion-icon>
+                  </ion-label>
+                  <ion-input type="text" placeholder="User Name" name="username"></ion-input>
+                </ion-item>
+
+                <!-- Email -->
+                <ion-item>
+                  <ion-label>
+                    <ion-icon name="md-mail" color="color3"></ion-icon>
+                  </ion-label>
+                  <ion-input type="email" placeholder="Email" name="email"></ion-input>
+                </ion-item>
+
+                <!-- Date  -->
+                <ion-item>
+                  <ion-label padding-left>
+                    <ion-icon name="md-calendar" color="color3"></ion-icon>
+                  </ion-label>
+                  <ion-datetime displayFormat="DDDD MMM, YYYY" placeholder="My Birthday"></ion-datetime>
+                </ion-item>
+              </ion-list>
+
+              <div class="buttons animated fadeInUp">
+                <button ion-button type="button" color="color3" ion-button round full (click)="step3()">
+                  Go
+                </button>
+              </div>
+            </div>
+
+            <!-- Sign In Page Button Option -->
+            <button ion-button type="button" color="color7" clear (click)="goToSignInPage()">
+              <strong>Already have an account? Sign In</strong>
+            </button>
+          </div>
+        </div>
+      </ion-slide>
+      <!-- End Slider Two  -->
+
+      <!-- Slider Three  -->
+      <!-- Signup Form Step Three -->
+      <!-- Fill up Password -->
+      <ion-slide>
+        <div class="background" text-center>
+
+          <div class="title animated fadeInDown">
+            <p>My Password is...</p>
+          </div>
+
+          <!-- Main Body -->
+          <div class="main-body animated zoomIn" padding>
+            <div class="form">
+              <ion-list>
+                <!-- Password -->
+                <ion-item>
+                  <ion-label>
+                    <ion-icon name="md-eye" color="color3"></ion-icon>
+                  </ion-label>
+                  <ion-input type="password" placeholder="Password" name="password"></ion-input>
+                </ion-item>
+
+                <!-- Confirm Password -->
+                <ion-item>
+                  <ion-label>
+                    <ion-icon name="md-eye" color="color3"></ion-icon>
+                  </ion-label>
+                  <ion-input type="password" placeholder="Confirm Password" name="password"></ion-input>
+                </ion-item>
+
+              </ion-list>
+
+
+              <!-- Sign Up Button -->
+              <div class="buttons animated fadeInUp">
+                <button ion-button type="submit" color="color3" ion-button round full (click)="goToProfile()">
+                  Sign Up
+                </button>
+              </div>
+            </div>
+
+            <!-- Sign In Button-->
+            <button ion-button type="button" clear color="color7" (click)="goToSignInPage()">
+              <strong>Already have an account? Sign In</strong>
+            </button>
+          </div>
+        </div>
+      </ion-slide>
+    <!-- End Slider Three  -->
+    </ion-slides>
+
+  </form>
+</ion-content>

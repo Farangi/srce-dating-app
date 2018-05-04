@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-10.0.1_98329374f5588bbeee73ebe262fced14adaeae26.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-10.0.1_d90f8090544d81f6ac28069276c4eb714b5923cb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-gass/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="57c2eceb8548de84509d1ebc293fedec53231f6c">
+        <dex dex="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-gass-10.0.1_f304a443bbdda6cc722f109f05786bf9ea1ad51d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-10.0.1_75d161cfff90fe8a3c987e91b4b475ea27942204.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="d0460bf07cc3657e0be518ca01c174493951c6b8">
+        <dex dex="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-ads-10.0.1_240f9ae52f84158297acf8189bb615c438285d6d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-clearcut/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="1d193729baf37df3d902a423291423a0df7e3779">
+        <dex dex="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-clearcut-10.0.1_eec1c9f39406d68124b6c6ea8c5c830df57d004e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/usr/local/opt/android-sdk/extras/android/m2repository/com/android/support/support-annotations/24.0.0/support-annotations-24.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/build/intermediates/pre-dexed/debug/support-annotations-24.0.0_a3862d5254716316fcf2d5130c0578e01be9d716.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/10.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="b955cb3a1ad6f1b6ff728ce1e0cd592c1717b440">
+        <dex dex="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-ads-lite-10.0.1_ce50165a7115456d5736232881443d5e6be77cf1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/libs/adcolony.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="25382369823b07e382c84b28144b24856208c48b">
+        <dex dex="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/build/intermediates/pre-dexed/debug/adcolony_1305b46e9e9e02cccd4f62bd403f38e28b61c41a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/build/intermediates/exploded-aar/android/CordovaLib/unspecified/debug/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="7195e7618d1343b80250dcb02fd66052a8aec43b">
+        <dex dex="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/build/intermediates/pre-dexed/debug/CordovaLib-unspecified-debug_eac7a6cdee4ceac9c33131a1ce7f6dd3157d90fc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/libs/internal_impl-24.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/build/intermediates/pre-dexed/debug/internal_impl-24.0.0_ee8374757a311ed477a42d06fbafc6aabb302abb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="/Volumes/kache/github/cordova-plugin-admob-free/examples/mediation/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.0.0_824b9ac06455301b1acf75cea614cbf4e6d2350f.jar" />
+    </item>
+
+</items>

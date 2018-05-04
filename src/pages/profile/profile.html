@@ -1,0 +1,67 @@
+<!-- User Profile Page -->
+
+<!-- Content  -->
+<ion-content>
+  <div class="container">
+    <div class="top">
+
+      <!-- User Information  -->
+      <div id="user-introduction">
+        <ion-row>
+          <!-- User Image  -->
+          <ion-col col-12 text-center>
+            <img src="assets/imgs/13.jpg">
+          </ion-col>
+          <!-- User Name  -->
+          <ion-col col-12 text-center>
+            <div class="fullname">Fahad Mustafa</div>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <!-- Buttons  -->
+      <div class="actions-btns">
+        <ion-row>
+
+          <!-- Settings Button  -->
+          <ion-col col-6 class="custom-col">
+            <button color="light" ion-fab (click)="openSettingsPage()">
+              <ion-icon color="color7" name="settings" style="zoom:1.2;"></ion-icon>
+            </button>
+            <div class="btn-text">Settings</div>
+          </ion-col>
+          <!-- End Settings Button  -->
+
+          <!-- Edit Profile Option Button -->
+          <ion-col col-6>
+            <button color="light" ion-fab (click)="openEditProfilePage()">
+              <ion-icon color="color7" name="md-create" style="zoom:1.2;"></ion-icon>
+            </button>
+            <div class="btn-text">Edit Info</div>
+          </ion-col>
+          <!-- End Edit Profile Option Button  -->
+        </ion-row>
+      </div>
+    </div>
+
+    <!-- Slider  -->
+    <div class="bottom" *ngIf="sliderData" text-center>
+      <ion-slides class="animated slideInLeft" pager loop="true" effect="slide" autoplay="4000">
+        <ion-slide *ngFor="let data of sliderData">
+          <h4>{{data.title}}</h4>
+          <p>{{data.details}}</p>
+        </ion-slide>
+      </ion-slides>
+    </div>
+    <!-- End Slider  -->
+  </div>
+</ion-content>
+<!-- End Content  -->
+
+<!-- Footer  -->
+<ion-footer no-shadow no-border>
+  <ion-toolbar position="bottom">
+    <button padding ion-button color="white" round>My SRCE Plus</button>
+  </ion-toolbar>
+</ion-footer>
+<!-- End footer  -->
