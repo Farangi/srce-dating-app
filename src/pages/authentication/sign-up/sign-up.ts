@@ -6,6 +6,8 @@
 
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../../services/auth.service';
 
 @IonicPage()
 @Component({
@@ -16,9 +18,16 @@ export class SignUpPage {
 
   @ViewChild(Slides) slides: Slides;
   gender: any = 'female';
+  form: FormGroup;
 
   constructor(public navCtrl: NavController,
-    public navParams: NavParams) {
+    public navParams: NavParams,
+    fb: FormBuilder,
+    private auth: AuthService) {
+      this.form = fb.group({
+        email: ['', Validators.compose([Validators.required, Validators.email])],
+        password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
+      });
   }
 
   ngAfterViewInit() {
@@ -32,7 +41,16 @@ export class SignUpPage {
    * @method    goToProfile
    */
   goToProfile() {
-    this.navCtrl.setRoot('HomePage');
+    let data = this.form.value;
+		let credentials = {
+			email: data.email,
+			password: data.password
+		};
+		this.auth.signUp(credentials).then(
+			() => this.navCtrl.setRoot('HomePage'),
+			error => console.log(error)
+		);
+    
   }
 
   /**

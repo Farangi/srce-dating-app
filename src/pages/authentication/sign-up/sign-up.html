@@ -1,7 +1,7 @@
 <!-- SignUp/Registration Page -->
 
 <ion-content text-center>
-  <form>
+  <form [formGroup]="form">
   <!-- All the SignUp form contents added in Slider  -->
     <ion-slides>
       <!-- Slider One  -->
@@ -77,7 +77,7 @@
                   <ion-label>
                     <ion-icon name="md-mail" color="color3"></ion-icon>
                   </ion-label>
-                  <ion-input type="email" placeholder="Email" name="email"></ion-input>
+                  <ion-input type="email" placeholder="Email" name="email" formControlName="email"></ion-input>
                 </ion-item>
 
                 <!-- Date  -->
@@ -124,7 +124,7 @@
                   <ion-label>
                     <ion-icon name="md-eye" color="color3"></ion-icon>
                   </ion-label>
-                  <ion-input type="password" placeholder="Password" name="password"></ion-input>
+                  <ion-input type="password" placeholder="Password" name="password" formControlName="password"></ion-input>
                 </ion-item>
 
                 <!-- Confirm Password -->

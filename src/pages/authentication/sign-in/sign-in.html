@@ -12,7 +12,7 @@
     <div class="signin-form animated zoomIn" padding>
 
       <!-- SignIn Form  -->
-      <form>
+      <form [formGroup]="loginForm">
         <ion-list>
 
           <!-- Email -->
@@ -20,7 +20,7 @@
             <ion-label>
               <ion-icon name="md-mail" color="color3"></ion-icon>
             </ion-label>
-            <ion-input type="email" placeholder="Email" name="email"></ion-input>
+            <ion-input type="email" placeholder="Email" name="email" formControlName="email"></ion-input>
           </ion-item>
 
           <!-- Password -->
@@ -28,7 +28,7 @@
             <ion-label>
               <ion-icon name="md-eye" color="color3"></ion-icon>
             </ion-label>
-            <ion-input type="password" placeholder="Password" name="password"></ion-input>
+            <ion-input type="password" placeholder="Password" name="password" formControlName="password"></ion-input>
           </ion-item>
         </ion-list>
 
@@ -41,6 +41,11 @@
         </div>
       </form>
 
+      <!-- Google Login Option -->
+      <button ion-button icon-left block clear (click)="loginWithGoogle()">
+        <ion-icon name="logo-google"></ion-icon>
+        Log in with Google
+      </button>
 
       <!-- Sign Up Page Button Option -->
       <button ion-button color="color7" clear (click)="goToSignUpPage()">

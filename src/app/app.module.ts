@@ -17,6 +17,12 @@ import { GiphyProvider } from '../providers/giphy/giphy';
 import { ChatProvider } from '../providers/chat/chat';
 import { AdmobProvider } from '../providers/admob/admob';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
+import { AuthService } from '../services/auth.service';
+
 @NgModule({
   declarations: [
     MyApp
@@ -26,7 +32,10 @@ import { AdmobProvider } from '../providers/admob/admob';
     HttpModule,
     SwingModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [IonicApp],
@@ -43,7 +52,9 @@ import { AdmobProvider } from '../providers/admob/admob';
     DataProvider,
     GiphyProvider,
     ChatProvider,
-    AdmobProvider
+    AdmobProvider,
+    AngularFireAuth,
+		AuthService
   ]
 })
 export class AppModule { }
