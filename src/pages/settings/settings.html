@@ -1,0 +1,228 @@
+<!-- Settings Page -->
+
+<!-- Header  -->
+<ion-header no-border>
+  <ion-navbar color="white" hideBackButton="true" no-border>
+
+    <!-- Buttons  -->
+    <ion-buttons start>
+      <button ion-button color="color1" clear (tap)="dismiss()">
+        <ion-icon name="arrow-back" style="zoom:2.0;"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <!-- Title of Page  -->
+    <ion-title color="color1">Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+<!-- End Header  -->
+
+<!-- COntent  -->
+<ion-content padding>
+  <!-- Show Me (Man/Women) Options  -->
+  <ion-card>
+    <ion-card-header color="color1">
+      Show Me
+      <p text-right>
+        <span *ngIf="settings.showMe.man" right>Man</span>
+        <span *ngIf="settings.showMe.man && settings.showMe.women" right>,</span>
+        <span *ngIf="settings.showMe.women"> Women</span>
+      </p>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label> Man</ion-label>
+        <ion-toggle color="color1" [(ngModel)]="settings.showMe.man"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label> Women</ion-label>
+        <ion-toggle color="color1" [(ngModel)]="settings.showMe.women"></ion-toggle>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Looking For (Date/Romance/Sex/Marriage) Options  -->
+  <ion-card>
+    <ion-card-header color="color1">
+      Looking For
+      <p text-right>
+        <span *ngIf="settings.lookingFor.date" right>Date</span>
+        <span *ngIf="settings.lookingFor.date && (settings.lookingFor.romance || settings.lookingFor.sex || settings.lookingFor.marriage)" right>,</span>
+        <span *ngIf="settings.lookingFor.romance" right>Romance</span>
+        <span *ngIf="settings.lookingFor.romance && (settings.lookingFor.sex || settings.lookingFor.marriage)" right>,</span>
+        <span *ngIf="settings.lookingFor.sex" right>Sex</span>
+        <span *ngIf="settings.lookingFor.sex && settings.lookingFor.marriage" right>,</span>
+        <span *ngIf="settings.lookingFor.marriage">Marriage</span>
+      </p>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label> Date</ion-label>
+        <ion-toggle color="color1" [(ngModel)]="settings.lookingFor.date"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label> Romance</ion-label>
+        <ion-toggle color="color1" [(ngModel)]="settings.lookingFor.romance"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label> Sex</ion-label>
+        <ion-toggle color="color1" [(ngModel)]="settings.lookingFor.sex"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label> Marriage</ion-label>
+        <ion-toggle color="color1" [(ngModel)]="settings.lookingFor.marriage"></ion-toggle>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Maximum Distance Option -->
+  <ion-card>
+    <ion-card-header color="color1">
+      Maximum Distance
+      <p text-right>
+        <span *ngIf="settings.radius.distance && !settings.radius.noRadius" right>{{settings.radius.distance}} mi.</span>
+        <span *ngIf="settings.radius.noRadius" right>Unlimited.</span>
+      </p>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-range color="color1" [disabled]="settings.radius.noRadius" [(ngModel)]="settings.radius.distance"></ion-range>
+      </ion-item>
+      <ion-item>
+        <ion-label>No Radius Range</ion-label>
+        <ion-toggle color="color1" [(ngModel)]="settings.radius.noRadius"></ion-toggle>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Age Range  -->
+  <ion-card>
+    <ion-card-header color="color1">
+      Age Range
+      <p text-right>
+        <span *ngIf="settings.ageRange.limits && !settings.ageRange.noAgeLimit" right>{{settings.ageRange.limits.lower}}-{{settings.ageRange.limits.upper}}</span>
+        <span *ngIf="settings.ageRange.noAgeLimit" right>Everyone.</span>
+      </p>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-range color="color1" dualKnobs="true" [disabled]="settings.ageRange.noAgeLimit" [(ngModel)]="settings.ageRange.limits" min="18" max="99" debounce="500" pin="true"></ion-range>
+      </ion-item>
+      <ion-item>
+        <ion-label>No Age Range</ion-label>
+        <ion-toggle color="color1" [(ngModel)]="settings.ageRange.noAgeLimit"></ion-toggle>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Receive mesages  -->
+  <ion-card>
+    <ion-card-header color="color1">
+      Receive messages from
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list radio-group no-padding [(ngModel)]="settings.receiveMessagesFrom">
+      <ion-item>
+        <ion-label>Everyone</ion-label>
+        <ion-radio color="color3" value="EVERYONE"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Only my Match</ion-label>
+        <ion-radio color="color3" value="MATCHES"></ion-radio>
+      </ion-item>
+    </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Show me on Tinder  -->
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label style="white-space: pre-wrap;"> Show me on Srce</ion-label>
+        <ion-toggle color="color1" [(ngModel)]="settings.showMeOnSrce"></ion-toggle>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+
+  <!-- App Settings -->
+  <h4>App Settings</h4>
+  <ion-card>
+    <ion-card-header color="color1">
+      Notifications
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>New Matches</ion-label>
+        <ion-toggle color="color1" [(ngModel)]="settings.appSettings.newMatches"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>Messages</ion-label>
+        <ion-toggle color="color1" [(ngModel)]="settings.appSettings.messages"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>Messages Likes</ion-label>
+        <ion-toggle color="color1" [(ngModel)]="settings.appSettings.messageLikes"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>Super Likes</ion-label>
+        <ion-toggle color="color1" [(ngModel)]="settings.appSettings.superLikes"></ion-toggle>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Update  -->
+  <div style="padding:10px">
+    <button ion-button type="submit" color="color3" ion-button block (click)="update()">
+      Update Settings
+    </button>
+  </div>
+
+  <!-- Contact Us  -->
+  <h4>Contact Us</h4>
+  <ion-card>
+    <ion-card-header text-center>
+      Help & Support
+    </ion-card-header>
+  </ion-card>
+
+  <!-- Others  -->
+  <ion-card>
+    <ion-item>
+      Share Srce
+    </ion-item>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header color="color1">
+      Legal
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        Licenses
+      </ion-item>
+      <ion-item>
+        Privcy Policy
+      </ion-item>
+      <ion-item>
+        Terms of Service
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Logout  -->
+  <ion-card (tap)="logout()">
+    <ion-card-header text-center>
+      Logout
+    </ion-card-header>
+  </ion-card>
+
+  <!-- Delete Account  -->
+  <ion-card>
+    <ion-card-header text-center color="color1">
+      Delete Account
+    </ion-card-header>
+  </ion-card>
+
+</ion-content>

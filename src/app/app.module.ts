@@ -8,6 +8,9 @@ import { HttpClient } from '@angular/common/http';
 import { AdMobFree } from '@ionic-native/admob-free';
 import { Camera } from '@ionic-native/camera';
 
+import { SelectSearchableModule } from 'ionic-select-searchable';
+import { IonicImageViewerModule } from 'ionic-img-viewer';
+
 import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
 import { SwingModule } from 'angular2-swing';
@@ -29,6 +32,8 @@ import { AuthService } from '../services/auth.service';
   ],
   imports: [
     BrowserModule,
+    SelectSearchableModule,
+    IonicImageViewerModule,
     HttpModule,
     SwingModule,
     HttpClientModule,

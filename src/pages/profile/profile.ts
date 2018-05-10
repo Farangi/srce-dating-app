@@ -4,8 +4,9 @@
  */
 
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { App, IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { DataProvider } from '../../providers/data/data';
+import { ImageViewerController } from 'ionic-img-viewer';
 
 @IonicPage()
 @Component({
@@ -13,13 +14,18 @@ import { DataProvider } from '../../providers/data/data';
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
-
+  _imageViewerCtrl: ImageViewerController;
   sliderData: any;
 
-  constructor(public navCtrl: NavController,
+  constructor(
+    private app: App,
+    public navCtrl: NavController,
     public navParams: NavParams,
     private dataProvider: DataProvider,
-    public modalCtrl: ModalController) {
+    public modalCtrl: ModalController,
+    imageViewerCtrl: ImageViewerController) {
+
+      this._imageViewerCtrl = imageViewerCtrl;
   }
 
   /** Do any initialization */
@@ -44,7 +50,18 @@ export class ProfilePage {
    * @method    openEditProfilePage
    */
   openEditProfilePage() {
-    
+    this.app.getRootNav().push('EditProfilePage');
+  }
+
+   /**
+   * --------------------------------------------------------------
+   * Open Photo Viewer Modal
+   * --------------------------------------------------------------
+   * @method    presentImage
+   */
+  presentImage(img) {
+    const imageViewer = this._imageViewerCtrl.create(img);
+    imageViewer.present();
   }
 
   /**
@@ -54,7 +71,7 @@ export class ProfilePage {
    * @method    openSettingsPage
    */
   openSettingsPage() {
-    
+    this.app.getRootNav().push('SettingsPage');
   }
 }
 

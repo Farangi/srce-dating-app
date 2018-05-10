@@ -1,0 +1,302 @@
+<!-- User Edit Profile Page -->
+
+<!-- Header  -->
+<ion-header no-border>
+  <ion-navbar color="white" hideBackButton="true" no-border>
+
+    <!-- Buttons  -->
+    <ion-buttons start>
+      <button ion-button color="color1" clear (tap)="dismiss()">
+        <ion-icon name="arrow-back" style="zoom:2.0;"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <!-- Page Title  -->
+    <ion-title color="color1">Edit Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+<!-- End Header  -->
+
+<!-- Content  -->
+<ion-content>
+  <!-- Profile Photo Section  -->
+  <div class="photos-section">
+    <ion-grid>
+      <ion-row justify-content-center margin-bottom>
+        <!-- Main Photo  -->
+        <ion-col col class="col1">
+          <h4 *ngIf="!img0" class="custom-text">1</h4>
+          <img #image0 (click)="showPhoto(image0, 0)" *ngIf="img0" [src]="img0 | sanitizer">
+        </ion-col>
+      </ion-row>
+
+      <ion-row justify-content-center>
+        <!-- Photo 1  -->
+        <ion-col col class="col2">
+          <h4 *ngIf="!img1" class="custom-text">1</h4>
+          <img #image1 (click)="showPhoto(image1, 1)" *ngIf="img1" [src]="img1 | sanitizer">
+          <button icon-only class="bottom-left" [disabled]="profile.showAllImg" (click)="selectPhoto(1)"><ion-icon name="checkmark" color="white"></ion-icon></button>
+          <button icon-only class="bottom-right" (click)="takePhoto(1)"><ion-icon name="add" color="white"></ion-icon></button>
+        </ion-col>
+
+        <!-- Photo 2 -->
+        <ion-col col class="col2">
+          <h4 *ngIf="!img2" class="custom-text">2</h4>
+          <img #image2 (click)="showPhoto(image2, 2)" *ngIf="img2" [src]="img2 | sanitizer">
+          <button icon-only class="bottom-left" [disabled]="profile.showAllImg" (click)="selectPhoto(2)"><ion-icon name="checkmark" color="white"></ion-icon></button>
+          <button icon-only class="bottom-right" (click)="takePhoto(2)"><ion-icon name="add" color="white"></ion-icon></button>
+        </ion-col>
+
+        <!-- Photo 3 -->
+        <ion-col col class="col2">
+          <h4 *ngIf="!img3" class="custom-text">3</h4>
+          <img #image3 (click)="showPhoto(image3, 3)" *ngIf="img3" [src]="img3 | sanitizer">
+          <button icon-only class="bottom-left" [disabled]="profile.showAllImg" (click)="selectPhoto(3)"><ion-icon name="checkmark" color="white"></ion-icon></button>
+          <button icon-only class="bottom-right" (click)="takePhoto(3)"><ion-icon name="add" color="white"></ion-icon></button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row justify-content-center>
+        <!-- Photo 4 -->
+        <ion-col col class="col2">
+          <h4 *ngIf="!img4" class="custom-text">4</h4>
+          <img *ngIf="img4" [src]="img4 | sanitizer">
+          <button icon-only class="bottom-left" [disabled]="profile.showAllImg" (click)="selectPhoto(4)"><ion-icon name="checkmark" color="white"></ion-icon></button>
+          <button icon-only class="bottom-right" (click)="takePhoto(4)"><ion-icon name="add" color="white"></ion-icon></button>
+        </ion-col>
+
+         <!-- Photo 5  -->
+        <ion-col col class="col2">
+          <h4 *ngIf="!img5" class="custom-text">5</h4>
+          <img *ngIf="img5" [src]="img5 | sanitizer">
+          <button icon-only class="bottom-left" [disabled]="profile.showAllImg" (click)="selectPhoto(5)"><ion-icon name="checkmark" color="white"></ion-icon></button>
+          <button icon-only class="bottom-right" (click)="takePhoto(5)"><ion-icon name="add" color="white"></ion-icon></button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!-- Smart Photos Option  -->
+  <ion-item>
+    <ion-label color="color7">Show all photos</ion-label>
+    <ion-toggle checked="true" color="color3" [(ngModel)]="profile.showAllImg"></ion-toggle>
+  </ion-item>
+
+  <!-- Profile Information  -->
+  <ion-list inset no-lines color="color7">
+    <p>When show all photos is selected picture will choosen randomly to show other people.</p>
+
+    <ion-card>
+      <ion-card-header color="color1">
+        Personal Information
+      </ion-card-header>
+      <ion-card-content>
+        <!-- Full Name  -->
+        <p><b>Full Name</b></p>
+        <ion-item no-padding>
+          <ion-input type="text" placeholder="Add Full Name" name="full-name" [(ngModel)]="profile.personal.fullName"></ion-input>
+        </ion-item>
+
+        <!-- Birthday  -->
+        <p><b>My Birthday</b></p>
+        <ion-item>
+          <ion-label padding-left>
+            <ion-icon name="md-calendar" color="color3"></ion-icon>
+          </ion-label>
+          <ion-datetime displayFormat="DDDD MMM, YYYY" placeholder="My Birthday" [(ngModel)]="profile.personal.birthday"></ion-datetime>
+        </ion-item>
+
+        <!-- Gender  -->
+        <p><b>Gender</b></p>
+        <ion-list radio-group no-padding [(ngModel)]="profile.personal.gender">
+          <ion-item>
+            <ion-label>Man</ion-label>
+            <ion-radio color="color3" checked="false" value="MAN"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>Women</ion-label>
+            <ion-radio color="color3" checked="true" value="WOMEN"></ion-radio>
+          </ion-item>
+        </ion-list>
+
+        <!-- About  -->
+        <p><b>About You</b></p>
+        <ion-item no-padding>
+          <ion-textarea maxLength="200" rows="4" placeholder="About You(max. 200 characters)" name="about" [(ngModel)]="profile.personal.about"></ion-textarea>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Location  -->
+    <ion-card>
+      <ion-card-header color="color1">
+        Location
+      </ion-card-header>
+      <ion-card-content>
+        <!-- Country  -->
+        <p><b>Country</b></p>
+        <ion-item no-padding>
+          <ion-input type="text" placeholder="Add Country" name="country" [(ngModel)]="profile.location.country"></ion-input>
+        </ion-item>
+
+        <!-- City  -->
+        <p><b>City</b></p>
+        <ion-item no-padding>
+          <ion-input type="text" placeholder="Add City" name="city" [(ngModel)]="profile.location.city"></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Job  -->
+    <ion-card>
+      <ion-card-header color="color1">
+        Job
+      </ion-card-header>
+      <ion-card-content>
+        <!-- Job Title  -->
+        <p><b>Job Title</b></p>
+        <ion-item no-padding>
+          <ion-input type="text" placeholder="Add Job Title" name="job-title" [(ngModel)]="profile.job.jobTitle"></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Body  -->
+    <ion-card>
+      <ion-card-header color="color1">
+        Body
+      </ion-card-header>
+      <ion-card-content>
+        <!-- Height  -->
+        <p><b>Height</b></p>
+        <p><b>feet</b></p>
+        <p text-right>
+          <span *ngIf="profile.body.height.ft" right>{{profile.body.height.ft}} ft </span>
+          <span *ngIf="profile.body.height.in">{{profile.body.height.in}} in</span>
+        </p>
+        <ion-item no-padding>
+          <ion-range color="color1" min="0" max="11" [(ngModel)]="profile.body.height.ft"></ion-range>
+        </ion-item>
+
+        <p><b>inches</b></p>
+        <ion-item no-padding>
+          <ion-range color="color1" min="0" max="11" [(ngModel)]="profile.body.height.in"></ion-range>
+        </ion-item>
+
+        <!-- Weight  -->
+        <p><b>Weight</b></p>
+        <p text-right>
+          <span *ngIf="profile.body.weight" right>{{profile.body.weight}} pound </span>
+        </p>
+        <ion-item no-padding>
+          <ion-range color="color1" min="0" max="300" [(ngModel)]="profile.body.weight"></ion-range>
+        </ion-item>
+
+        <!-- Eyes  -->
+        <p><b>Eyes</b></p>
+        <ion-item no-padding>
+          <ion-input type="text" placeholder="Add Eyes" name="eyes" [(ngModel)]="profile.body.eyes"></ion-input>
+        </ion-item>
+
+        <!-- Hair  -->
+        <p><b>Hair</b></p>
+        <ion-item no-padding>
+          <ion-input type="text" placeholder="Add Hair" name="hair" [(ngModel)]="profile.body.hair"></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Extras  -->
+    <ion-card>
+      <ion-card-header color="color1">
+        Extras
+      </ion-card-header>
+      <ion-card-content>
+        <!-- Tattoo  -->
+        <p><b>Tattoo</b></p>
+        <ion-list radio-group no-padding [(ngModel)]="profile.extras.tattoo">
+          <ion-item>
+            <ion-label>Yes</ion-label>
+            <ion-radio color="color3" checked="false" value="YES"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>No</ion-label>
+            <ion-radio color="color3" checked="true" value="NO"></ion-radio>
+          </ion-item>
+        </ion-list>
+
+        <!-- Piercing  -->
+        <p><b>Piercing</b></p>
+        <ion-list radio-group no-padding [(ngModel)]="profile.extras.piercing">
+          <ion-item>
+            <ion-label>Yes</ion-label>
+            <ion-radio color="color3" checked="false" value="YES"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>No</ion-label>
+            <ion-radio color="color3" checked="true" value="NO"></ion-radio>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Interests  -->
+    <ion-card>
+      <ion-card-header color="color1">
+        Interests
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+          <select-searchable title="Interests" [(ngModel)]="profile.interests" [items]="interests" itemValueField="value" itemTextField="name" [canSearch]="true" [multiple]="true" [focusSearchbar]="true" [noItemsFoundText]="'No matching interest. kindly try adding another.'" >
+          </select-searchable>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Looking for  -->
+    <ion-card>
+      <ion-card-header color="color1">
+        Looking for
+      </ion-card-header>
+      <ion-card-content>
+        <!-- Looking for  -->
+        <p><b>What i am looking for</b></p>
+        <ion-item no-padding>
+          <ion-textarea maxLength="200" rows="4" placeholder="What i am looking for(max. 200 characters)" [(ngModel)]="profile.lookingFor" name="looking-for"></ion-textarea>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Profile Control  -->
+    <ion-card>
+      <ion-card-header color="color1">
+        Profile Control
+      </ion-card-header>
+      <ion-card-content>
+        <!-- Control Your Profile  -->
+        <p><b>Control Your Profile</b></p>
+        <ion-item>
+          <ion-label style="white-space: pre-wrap;" color="color7">Don't Show My Age</ion-label>
+          <ion-toggle checked="true" color="color3" [(ngModel)]="profile.control.hideAge"></ion-toggle>
+        </ion-item>
+        <ion-item>
+          <ion-label style="white-space: pre-wrap;" color="color7">Make My Distance Invisible</ion-label>
+          <ion-toggle checked="false" color="color3" [(ngModel)]="profile.control.invisibleDistance"></ion-toggle>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Update  -->
+  <div style="padding:10px">
+    <button ion-button type="submit" color="color3" ion-button block (click)="update()">
+      Update Profile
+    </button>
+  </div>
+
+  </ion-list>
+
+</ion-content>
+<!-- End Content  -->
