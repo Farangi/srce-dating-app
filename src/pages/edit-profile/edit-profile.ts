@@ -1,9 +1,10 @@
+import { UserService } from './../../services/user.service';
 /**
  * This file represents a component of Edit Profile
  * File path - '../../../../src/pages/edit-profile/edit-profile'
  */
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ImageViewerController } from 'ionic-img-viewer';
@@ -13,7 +14,7 @@ import { ImageViewerController } from 'ionic-img-viewer';
   selector: 'page-edit-profile',
   templateUrl: 'edit-profile.html',
 })
-export class EditProfilePage {
+export class EditProfilePage implements OnInit {
   _imageViewerCtrl: ImageViewerController;
 
   public base64Image: string;
@@ -40,6 +41,30 @@ export class EditProfilePage {
   img3: any;
   img4: any;
   img5: any;
+
+  ngOnInit() {
+    this.userService.getUserData()
+      .then(data => {
+        if(data !== undefined)
+        {
+          this.profile.personal.gender = data.gender;
+          this.profile.personal.birthday = data.birthday;
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    this.userService.getUserProfile()
+      .then(data => {
+        if(data !== undefined)
+        {
+          this.profile = data;
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
 
   profile: any = {
     showAllImg: false,
@@ -82,7 +107,8 @@ export class EditProfilePage {
     public navParams: NavParams,
     public viewCtrl: ViewController,
     private camera: Camera,
-    imageViewerCtrl: ImageViewerController) {
+    imageViewerCtrl: ImageViewerController,
+    private userService: UserService) {
 
       this._imageViewerCtrl = imageViewerCtrl;
   }
@@ -204,6 +230,13 @@ export class EditProfilePage {
   //Update
   update(){
     console.log(this.profile);
+    this.userService.updateUserProfile(this.profile)
+      .then(data => {
+        console.log(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   /**

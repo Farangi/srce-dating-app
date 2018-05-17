@@ -1,3 +1,4 @@
+import { UserService } from './../services/user.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -21,10 +22,10 @@ import { ChatProvider } from '../providers/chat/chat';
 import { AdmobProvider } from '../providers/admob/admob';
 
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { AuthService } from '../services/auth.service';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 @NgModule({
   declarations: [
@@ -39,8 +40,8 @@ import { AuthService } from '../services/auth.service';
     HttpClientModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [IonicApp],
@@ -58,8 +59,8 @@ import { AuthService } from '../services/auth.service';
     GiphyProvider,
     ChatProvider,
     AdmobProvider,
-    AngularFireAuth,
-		AuthService
+    AuthService,
+    UserService
   ]
 })
 export class AppModule { }

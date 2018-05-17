@@ -26,7 +26,9 @@ export class SignUpPage {
     private auth: AuthService) {
       this.form = fb.group({
         email: ['', Validators.compose([Validators.required, Validators.email])],
-        password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
+        password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
+        username: ['', Validators.compose([Validators.required])],
+        birthday: ['', Validators.compose([Validators.required])]
       });
   }
 
@@ -44,8 +46,12 @@ export class SignUpPage {
     let data = this.form.value;
 		let credentials = {
 			email: data.email,
-			password: data.password
-		};
+      password: data.password,
+      gender: this.gender,
+      username: data.username,
+      birthday: data.birthday
+    };
+    console.log(credentials);
 		this.auth.signUp(credentials).then(
 			() => this.navCtrl.setRoot('HomePage'),
 			error => console.log(error)

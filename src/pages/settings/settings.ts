@@ -1,10 +1,12 @@
+import { UserService } from './../../services/user.service';
+import { AuthService } from './../../services/auth.service';
 /**
  * This file represents a component of settings
  * File path - '../../../../src/pages/settings/settings'
  */
 
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 @IonicPage()
@@ -12,8 +14,20 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
   selector: 'page-settings',
   templateUrl: 'settings.html',
 })
-export class SettingsPage {
+export class SettingsPage implements OnInit {
 
+  ngOnInit() {
+    this.userService.getUserSettings()
+      .then(data => {
+        if(data !== undefined)
+        {
+          this.settings = data;
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
   settings: any = {
     showMe: {
       man: true,
@@ -48,17 +62,32 @@ export class SettingsPage {
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    public viewCtrl: ViewController) {
+    public viewCtrl: ViewController,
+    private authService: AuthService,
+    private userService: UserService) {
   }
 
   //Update
-  update(){
+  update() {
     console.log(this.settings);
+    this.userService.updateUserSettings(this.settings)
+      .then(data => {
+        console.log(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   // Logout
   logout() {
-    this.navCtrl.setRoot('SignInPage');
+    this.authService.signOut()
+      .then(() => {
+        this.navCtrl.setRoot('SignInPage');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
   /**
    * This function dismiss the page

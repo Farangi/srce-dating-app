@@ -1,3 +1,4 @@
+import { UserService } from './user.service';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
@@ -7,7 +8,7 @@ import AuthProvider = firebase.auth.AuthProvider;
 export class AuthService {
     private user: firebase.User;
 
-    constructor(public afAuth: AngularFireAuth) {
+    constructor(public afAuth: AngularFireAuth, private userService: UserService) {
         afAuth.authState.subscribe(user => {
             this.user = user;
         });
@@ -19,7 +20,13 @@ export class AuthService {
             credentials.password);
     }
     signUp(credentials) {
-        return this.afAuth.auth.createUserWithEmailAndPassword(credentials.email, credentials.password);
+        return this.afAuth.auth.createUserWithEmailAndPassword(credentials.email, credentials.password)
+        .then(() => {
+            return this.userService.updateCurrentUser(credentials);
+        })
+        .catch((err) => {
+            return err;
+        });
     }
     get authenticated(): boolean {
         return this.user !== null;
